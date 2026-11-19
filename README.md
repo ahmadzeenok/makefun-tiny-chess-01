@@ -6,9 +6,10 @@
 
 A compact, deterministic chess engine that plays the make.fun
 tiny-chess-01 gauntlet through the env at `MAKEFUN_ENV_URL`.
-`main.py` is the whole engine (3,789 bytes, LZMA-packed with the kit's
-`makefun compress`; the readable source is `engine.py`, sent with the
-transcripts). Python 3.13, standard library only, no other files read.
+`main.py` is the whole engine (3,540 bytes, LZMA-packed with the kit's
+`makefun compress` from the hand-written source `engine_hand.py`, sent
+with the transcripts). Python 3.13, standard library only, no other
+files read.
 
 ## How it plays
 
@@ -26,12 +27,14 @@ transcripts). Python 3.13, standard library only, no other files read.
 
 ## Local results (practice trial-0, real house gauntlet)
 
-4 wins, 1 draw, 1 loss (4.5/6), about 1545 Elo — beats depth-2, depth-3,
+4 wins, 1 draw, 1 loss (4.5/6), 1545 Elo — beats depth-2, depth-3,
 depth-4 and nodes-100k, draws nodes-500k, loses only to nodes-250k.
 That is above the 1154 practice floor and above the house baseline
-(sunfish 4K, ~1365 Elo on practice). Move generation verified by perft
-(all standard positions, depths 1-3) and the incremental hash verified
-against a from-scratch hash on 2,777 positions.
+(sunfish 4K, ~1365 Elo on practice). The hand-written engine plays
+move-for-move identically to the readable reference engine on this
+trial. Move generation verified by perft (all standard positions,
+depths 1-3) and the incremental hash verified against a from-scratch
+hash on 2,777 positions.
 
 ## Run it
 
